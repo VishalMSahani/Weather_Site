@@ -1,4 +1,203 @@
-.tab .current-tab{
-    background-color: rgb(204, 203, 203);
+
+
+*,*::before,*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --colorDark1 :  #112D4E;
+    --colorDark2 :  #3F72Af;
+    --colorLight1 :  #dbe2ef;
+    --colorLight2 :  #f9f7f7;
+}
+.wrapper{
+    width: 100vw;
+    height: 100vh;
+    color: var(--colorLight2);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(2,30,93,1) 100%);
+    font-family: sans-serif;
+}
+
+.tab_container h1{
+    text-align: center;
+    padding: 20px;
+    text-transform: uppercase;
+}
+.switch-tab{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 20PX;
+}
+.tab{
     border-radius: 4px;
+    width: 150px;
+    height: 25px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    letter-spacing: 1.25px;
+    
+}
+
+.tab.current-tab{
+    background-color: rgba(162, 160, 160, 0.56);
+    font-weight: 600;
+}
+
+.grantAccessContiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.location{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.location p:first-of-type{
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.location p:last-of-type{
+    letter-spacing: .75px;
+    margin-top: 2px;
+}
+.location button{
+    all: unset;
+    margin-top: 20px;
+    padding: 10px 12px;
+    background-color: var(--colorDark2);
+    border-radius: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    font-size: 0.95rem;
+    border: 1px solid rgba(255, 255, 255, 0.551);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+
+.formContainer.active{
+    display: flex;
+} 
+.formContainer{
+    display: none;
+    max-width: 550px;
+    width: 90%;
+    justify-content: center;
+    gap: 0 10px;
+    margin-bottom: 3rem;
+    margin-top: 30px;
+}
+.formContainer input{
+    width: calc(100% - 80px);   
+    height: 40px;
+    all: unset;
+    padding: 0 20px;
+    background-color: rgba(162, 160, 160, 0.56);
+    border-radius: 10px;   
+}
+
+.formContainer input::placeholder {
+    color: #dbe2ef;
+    height: 80px;
+}
+
+
+.formContainer button img{
+    height: 40px;
+    width: auto;
+    background-color: #3F72Af;
+    border: none;
+    width: auto;
+    cursor: pointer;
+}
+.formContainer input:focus{
+    outline:3px solid rgba(255, 255, 255, 0.76);
+}
+
+.formContainer button{
+    width: 40px;
+    height: 40px;
+    all: unset;
+}
+.formContainer .btn{
+    width: 40px;
+    height: 40px;
+    background-color: unset;
+}
+
+.displayInfoContainer.active{
+    display: none;
+}
+
+.name{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.CityCountery{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.name p:first-child{
+    font-size: 2.5em;
+    color: white;
+    font-weight: bold;
+    margin-right: 12px;
+}
+.name p:nth-child(2){
+    font-size:  1.3em;
+    color: white;
+    font-weight: 500;
+    margin-right: 12px;
+    text-transform: capitalize;
+}
+.name .temp{
+    font-size: 3.5em;
+    color: white;
+    font-weight: 700;
+    margin-top: 15px;  
+}
+
+.ParameterContiner{
+    display: flex;
+    text-align: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.parameter{
+    background-color:#8fb6fe3e;
+    border-radius: 10px;
+    padding: 5px;
+    box-shadow: 0 0 12px rgba(0,0,0,.1);
+    width: 185px;
+    
+}
+.parameter p:first-of-type{ 
+    font-size: 16px;
+    font-weight:600;
+    margin-bottom: 5px;
+    
+}
+.parameter p:last-of-type{ 
+    font-size: 25px;
+    font-weight:600;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }

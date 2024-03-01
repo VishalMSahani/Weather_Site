@@ -1,33 +1,8 @@
-// const API_KEY = "02c12725c03e42661d91511e426ee133";
-
-// async function showWeather() {
-//     try {
-//         let city = "Mumbai";
-//         let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
-
-//         if (!response.ok) {
-//             throw new Error('Network response was not ok.');
-//         }
-
-//         const data = await response.json();
-//         console.log("Weather Data:", data);
-
-//         let newPara = document.createElement('p');
-//         newPara.textContent = `${(data?.main?.temp.toFixed(2))} °C`;
-//         document.body.appendChild(newPara);
-//     } catch (error) {
-//         console.log(`Error: ${error.message}`);
-//     }
-// }
-
-// showWeather();
 
 const  userTab = document.querySelector("[data-userWeather]");
 const  searchTab = document.querySelector("[data-searchWeather]");
 const userContainer = document.querySelector(".weatherContainer");
-
 const grantAccess = document.querySelector(".grantAccessContiner");
-
 const loadingScreen = document.querySelector(".loadingContainer");
 const userInfoContainer = document.querySelector(".displayInfoContainer");
 
@@ -75,15 +50,16 @@ function getFromSessionStoreage(){
 
 async function fetchUserWeatherInfo(cordinates){
     const {lat,lon} = cordinates;
-    grantAccess.classList.remove( "active" );
+    grantAccess.classList.remove("active");
     loadingScreen.classList.add("active");
 
     //api call
     try{
-        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}`);
+        const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
         let data = await response.json() ;
         loadingScreen.classList.remove("active");
         userInfoContainer.classList.add("active");
+        grantAccess.classList.add("active");
         renderWeatherinfo(data);
       
     }
@@ -125,12 +101,12 @@ function renderWeatherinfo(weatherInfo){
     const cloudeness = document.querySelector("[data-Cloud]");
 
     cityName.innerText =weatherInfo?.name;
-    contryIcon.src= `https://flagcdn.com/108x81/${weatherInfo?.say?.country.toLowerCase()}.png`;
+    contryIcon.src= `https://flagcdn.com/${weatherInfo?.sys?.country}.png`;
     description.innerText = weatherInfo?.weather?.[0]?.description;
-    weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png` ;
-    temprature.innerText = weatherInfo?.main?.temp;
+    weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`  ;
+    temprature.innerText = weatherInfo?.main?.temp + "°C";
     windSpeed.innerText =  weatherInfo?.wind?.speed;
-    humidity.innerText = weatherInfo?.main?.humidity;
+    humidity.innerText = weatherInfo?.main?.humidity;   
     cloudeness.innerText = weatherInfo?.clouds?.all;
 }
 
@@ -155,9 +131,9 @@ searchForm.addEventListener("submit", (e) => { // Listen for form submission
 });
 
 async function fetchSearchweatherInfo(city){
-    // loadingScreen.classList.add("active");
-    // userInfoContainer.classList.remove("active");
-    // grantAccess.classList.remove("active");
+    loadingScreen.classList.add("active");
+    userInfoContainer.classList.remove("active");
+    grantAccess.classList.remove("active");
 
     try{
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`);
@@ -167,7 +143,7 @@ async function fetchSearchweatherInfo(city){
         renderWeatherinfo(data);
     }
     catch{
-        alert('Error: Could not retrieve weather information');
-        return;
+        // alert('Error: Could not retrieve weather information');
+        // return;
     }
 };
