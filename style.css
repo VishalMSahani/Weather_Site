@@ -1,10 +1,9 @@
-
-
 *,*::before,*::after{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
+
 :root{
     --colorDark1 :  #112D4E;
     --colorDark2 :  #3F72Af;
@@ -12,15 +11,20 @@
     --colorLight2 :  #f9f7f7;
 }
 body{
-    color: var(--colorLight2);
-    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(2,30,93,1) 100%);
-    background-position:  center top;
+    background: hsla(210, 90%, 80%, 1);
 
+    background: linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
+
+    background: -moz-linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
+
+    background: -webkit-linear-gradient(90deg, hsla(210, 90%, 80%, 1) 0%, hsla(212, 93%, 49%, 1) 100%);
+
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr="#fffff", endColorstr="#fffff", GradientType=1 );
 }
 .wrapper{
     width: 100vw;
     height: 100vh;
-    
+    color: white;
     font-family: sans-serif;
 }
 
@@ -70,6 +74,7 @@ body{
     align-items: center;
     padding: 20px;
     margin-top: 30px;
+    color: white;
 }
 
 .location p:first-of-type{
@@ -114,12 +119,15 @@ body{
     all: unset;
     padding: 0 20px;
     background-color: rgba(162, 160, 160, 0.56);
-    border-radius: 10px;   
+    border-radius: 10px; 
+    color: white;
+    text-transform: capitalize;  
 }
 
 .formContainer input::placeholder {
     color: #dbe2ef;
     height: 80px;
+    text-transform: none;
 }
 
 
@@ -169,16 +177,17 @@ body{
 }
 
 .name p:first-child{
-    font-size: 2.5em;
+    font-size: 2.1em;
     color: white;
     font-weight: bold;
     margin-right: 12px;
 }
 .name p:nth-child(2){
-    font-size:  1.3em;
+    font-size:  1.8em;
     color: white;
     font-weight: 500;
     margin-right: 12px;
+    margin-top: 12px;
     text-transform: capitalize;
 }
 .name .temp{
@@ -193,40 +202,54 @@ body{
     text-align: center;
     gap: 30px;
     margin-top: 30px;
+    color: white;
 }
 
 .parameter{
-    background-color:#8fb6fe3e;
+    background-color:#8fb6fe60;
     border-radius: 10px;
     padding: 5px;
-    box-shadow: 0 0 12px rgba(0,0,0,.1);
-    width: 185px;    
+    box-shadow: 0 0 12px rgba(0, 0, 0, 0.3);
+    width: 185px;
+    text-align: center;    
 }
 
 .parameter p:first-of-type{ 
     font-size: 16px;
-    font-weight:600;
+    font-weight:500;
     margin-bottom: 5px;
-    
+    margin-left: 8px;
 }
 .parameter p:last-of-type{ 
     font-size: 25px;
     font-weight:600;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 5px;  
 }
 
 .loadingContainer{
     display: none;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     margin-top: 50px;
 }
 .loadingContainer.active{
     display: flex;
 }
+.feel{
+    padding: 8px 30px 8px 30px;
+    border-radius: 5px;
+    margin-top: 20px;
+    border: 1px solid white;
+    font-size: 18px;
+}
 
 
 @media screen and (max-width: 700px){
+    body{
+        background: rgba(2, 55, 107, 0.855);  
+    }
     .ParameterContiner{
         display: flex;
         gap: 30px 350px;

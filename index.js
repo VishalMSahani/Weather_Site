@@ -108,20 +108,26 @@ sessionStorage.setItem("userCordinates", JSON.stringify(userCordinates));
 
 
 function renderWeatherinfo(weatherInfo){
-    const cityName = document.querySelector("[data-cityName]");
     const contryIcon = document.querySelector("[data-Contyflag]");
+    const cityName = document.querySelector("[data-cityName]");
+    const timeZone = document.querySelector(".time");
     const description = document.querySelector("[data-weatehrDesc]");
     const weatherIcon = document.querySelector("[data-weatherIcon]");
     const temprature = document.querySelector(".temp");
+    const feelLike = document.querySelector(".feel");
     const windSpeed = document.querySelector("[data-windSpeed]");
     const humidity = document.querySelector("[data-humidity]");
     const cloudeness = document.querySelector("[data-Cloud]");
 
+
+
     cityName.innerText =weatherInfo?.name;
-    contryIcon.src= `https://flagcdn.com/${weatherInfo?.sys?.country}.png`;
+   
+    contryIcon.src = `https://flagcdn.com/108x81/${weatherInfo?.sys?.country.toLowerCase()}.png`;
     description.innerText = weatherInfo?.weather?.[0]?.description;
     weatherIcon.src = `https://openweathermap.org/img/w/${weatherInfo?.weather?.[0]?.icon}.png`  ;
-    temprature.innerText = weatherInfo?.main?.temp + "°C";
+    temprature.innerText =weatherInfo?.main?.temp + "°C";
+    feelLike.innerText ="Feels Like : " + weatherInfo?.main?.feels_like + "°C"; 
     windSpeed.innerText =  weatherInfo?.wind?.speed;
     humidity.innerText = weatherInfo?.main?.humidity;   
     cloudeness.innerText = weatherInfo?.clouds?.all;

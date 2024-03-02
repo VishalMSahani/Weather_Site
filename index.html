@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/7.1.0/css/flag-icons.min.css" integrity="sha512-bZBu2H0+FGFz/stDN/L0k8J0G8qVsAL0ht1qg5kTwtAheiXwiRKyCq1frwfbSFSJN3jooR5kauE0YjtPzhZtJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Weather App</title>
 </head>
 <body>
     <div class="wrapper">
@@ -30,7 +31,7 @@
 
         <!--Form Section-->
             <form class="formContainer" data-searchForm>
-                <input  placeholder="Search fro city..." data-searchInput>
+                <input  placeholder="Search for city..." data-searchInput>
                 <button >
                     <img class="btn" src="./images/search.png" alt="" width="20px" height="20px">
                 </button>
@@ -38,7 +39,7 @@
 
         <!--Loading-->
             <div class="loadingContainer">
-                <img src="./images/loading.gif" width="150" height="150">
+                <img src="./images/loading.gif" width="150" height="150" loading="lazy">
                 <h3> Loading Please Wait ... </h3> 
             </div>
             
@@ -48,15 +49,17 @@
             <div class="name">
                 <div class="CityCountery">
                     <p data-cityName></p>
-                    <img data-Contyflag/>
+                    <!-- <h1 class="time"></h1> -->
+                    <img data-Contyflag / width="45" height="auto" />
                 </div>
                 <!--weather description-->
                 <p data-weatehrDesc></p>
                 <!--Weather Icon-->
                 <img data-weatherIcon/>
                 <!--Temperature-->
-                <div data-temp class="temp">
-            </div>
+                <div data-temp class="temp"> 
+                </div>
+                <p class="feel"></p>
             
                 <!--Cloudness, Humidity and Wind Speed-->
                 <div class="ParameterContiner">
